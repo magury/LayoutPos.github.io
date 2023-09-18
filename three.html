@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="jquery.min.js"></script>
+</head>
+
+<body onload="onload()">
+    <ul id="title">
+        <a href="./index.html">
+            <li>ONE</li>
+        </a>
+        <a href="./two.html">
+            <li> TWO</li>
+        </a>
+        <a href="./three.html">
+            <li>THREE</li>
+        </a>
+        <a href="./four.html">
+            <li>FOUR</li>
+        </a>
+        <a href="./five.html">
+            <li>FIVE</li>
+        </a>
+
+    </ul>
+    <ul id="content">
+        <li style="display: none;">
+            <div id="one" style="display: none;"></div>
+        </li>
+        <li style="display: none;">
+            <div id="two">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </li>
+        <li style="display: none;">
+            <div id="three">
+                <div></div>
+                <div></div>
+            </div>
+        </li>
+        <li style="display: none;">
+            <div id="four">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </li>
+        <li style="display: none;">
+            <div id="five">
+                <div id="fiveOne">
+                    <div></div>
+                    <div></div>
+                </div>
+                <div>
+                    <div style="background-color: rgb(152, 115, 240);"></div>
+                    <div style="background-color: rgb(142, 254, 98);"></div>
+                    <div style="background-color: rgb(217, 192, 155);"></div>
+                </div>
+                <div style="background-color: rgb(233, 221, 97);"></div>
+            </div>
+        </li>
+    </ul>
+</body>
+<script>
+    const onload = () => {
+        $('#content li').eq(2).slideDown(500)
+    }
+    const titleLis = $('#title li')
+    const contentLis = $('#content li')
+    $.each(titleLis, (index, element) => {
+        $(element).on('click', (e) => {
+            let currentNode = $(contentLis[index])
+            currentNode.slideDown(500).siblings().slideUp(500)
+
+        })
+    })
+</script>
+
+</html>
